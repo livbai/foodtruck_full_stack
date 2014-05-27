@@ -23,6 +23,7 @@ developer: Le Gao (backend)  https://www.linkedin.com/pub/le-gao/21/b71/199
    4.4 User geolocalize technique may be a big plus.
    4.4 User comments for each food truck may be a good idea 
    4.5 Currently we use in memory db, if we change to regular db like mysql, additional in memory cache may be needed to save the hot search
+   4.6 Need to make display auto fit for different browser, different OS and on mobile device
 
 Project host: http://damp-mountain-6844.herokuapp.com/
 Github repository:  https://github.com/livbai/foodtruck_full_stack
