@@ -1,0 +1,89 @@
+#map { 
+    height: 500px; 
+    width:80%;
+    float:left;
+}
+html {
+    background: #eee;
+}
+
+header h1 {
+    /*padding: 0.4em 1.1em*/;
+    color: white;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+section#main {
+    position: relative;
+    /*padding: 5em 2em*/;
+    border-bottom: 1px solid #ccc;
+    min-height: 570px;
+} 
+
+section#main .topRight {
+    position: absolute;
+    right: 20px;
+    top: 70px;
+}
+
+
+#actions {
+    position: relative;
+}
+
+input {
+vertical-align: middle;
+outline: none;
+width:100%
+}
+label{
+	color:#67b2ee;
+	font-weight:700;
+}
+fieldset
+{
+	text-align:left;
+	padding:5px;
+	border:1px solid #67b2ee;
+}
+legend
+{
+	color:#67b2ee;
+}
+b
+{
+	color:#67b2ee;
+	
+}
+ul{
+	padding:0;
+}
+h1{
+	background-color:#b7b2ee;
+	color:white
+}
+#left{
+	width:20%;
+	float:left;
+}
+.btn{
+	margin:10px;
+	width:90%;
+	background-color:#67b2ee;
+	height:35px;
+	font-size:16px;
+	color:white;
+	font-size:16px;
+	font-weight:700;
+	border:none;
+	cursor:pointer;
+}
+table{
+	border:0px;
+}
+#rtnShow{
+	height:350px;
+	overflow-y:auto;
+}
+

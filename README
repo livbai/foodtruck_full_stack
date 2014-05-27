@@ -1,0 +1,28 @@
+Food Trucks Search Project
+
+developer: Le Gao (backend)  https://www.linkedin.com/pub/le-gao/21/b71/199
+           Qianji Zheng (frontend)   
+
+1. Develop environment: play framwork; java (backend); H2 in memory db; leafletjs + css (front end)
+
+2. WS API called: 
+   2.1 http://data.sfgov.org/resource/rqzj-sfat.json (food truck info)
+   2.2 https://maps.googleapis.com/maps/api/geocode/json  (geocoding API from google)
+
+3. Functionality:
+   3.1 Search food truck info in San Francisco area and display the results on a openstreetmap;
+   3.2 Search parameters:
+       3.2.1 Zip code: a zip in SF area. if the zip input is not in SF area, will show “the zip provided is not in SF”;
+       3.2.2 Food type: keyword of the food items, default is “any”;
+       3.2.3 Distance(miles): from the center of the zip, filter the results based on the distance;
+       
+4. Potential future improvement:
+   4.1 Automatically zoom into the location of the map when clicking one of the food trucks in the list.
+   4.2 Validation for user's input.
+   4.3 Other than zip, user can provide an address to find the food truck. Additional fuzzy address recognition may be needed.
+   4.4 User geolocalize technique may be a big plus.
+   4.4 User comments for each food truck may be a good idea 
+   4.5 Currently we use in memory db, if we change to regular db like mysql, additional in memory cache may be needed to save the hot search
+
+Project host:
+Github repository: 

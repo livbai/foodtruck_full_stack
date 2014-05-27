@@ -1,0 +1,79 @@
+@(location: Citylocation)(foodtrucks: List[Foodtruckinfo])
+@import helper._
+@main("Welcome to Food Truck Search in San Francisco") {
+
+<h1>Food trucks sample application</h1>
+        <div id="left">
+        @form(routes.Application.show()) {
+        <fieldset>
+                <legend>Search</legend>
+        
+
+	<table>
+	<tr>
+	  <td><label>Zip code:</label></td>
+          <td><input name="zipcode"/ value="" > </td>
+	</tr>
+	<tr>
+	  <td><label>Food type:</label></td>
+	  <td><input name="foodType"/ value="any"> </td>
+        </tr>
+	<tr>
+	  <td><label>Distance(miles):</label></td>
+          <td><input name="distance"/ value="1"> </td>
+        </tr>
+	</table>
+        
+        <div class="actions">
+            <input type="submit" class="btn" value="search for the food" > 
+        </div>
+         
+        </fieldset>
+        <br />
+        <fieldset id="rtnShow">
+        <legend>Food trucks results</legend>
+
+        <ul>
+        @if("San Francisco"!=location.city_name){
+        <p style="color:red">The zip code you provided is not in San Francisco</p>
+        }
+        @if(foodtrucks.isEmpty()){
+         <p style="color:red">Results will be shown here</p>
+        }
+            @for(foodtruck <- foodtrucks) {
+            <li>
+            <b>Food Truck:</b> @foodtruck.applicant <br /><b>Address:</b> @foodtruck.address<br /><b>Food Items:</b> @foodtruck.fooditems<br />
+            <br />
+            </li>
+            }
+        </ul>
+
+        </fieldset>
+        
+    }
+    </div>
+    <div id="map">
+    </div>
+            <script type="text/javascript">
+     		var map = L.map('map').setView([@location.latitude,@location.longitude], 13);
+
+     		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+     			maxZoom: 18,
+     			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+     				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+     				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+     			id: 'examples.map-i86knfo3'
+     		}).addTo(map);
+
+     		@for(foodtruck <- foodtrucks) {
+     			L.marker([@foodtruck.latitude,@foodtruck.longitude]).addTo(map)
+     			.bindPopup("<b>Food Truck:</b> @foodtruck.applicant <br /><b>Address:</b> @foodtruck.address<br /><b>Food Items:</b> @foodtruck.fooditems<br />");
+     		
+     		}
+
+
+     	
+        </script>
+        
+ 
+}
