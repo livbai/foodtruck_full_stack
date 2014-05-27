@@ -31,7 +31,7 @@ public class Application extends Controller {
 		//get userinput from the form
 		Form<InputForm> input = Form.form(InputForm.class).bindFromRequest();
 		String zipCode = input.get().zipcode;
-		String foodType = input.get().foodType;
+		String foodType = input.get().foodType.toLowerCase();
 		String distanceString = input.get().distance;
 		
 		double distance;
@@ -101,7 +101,7 @@ public class Application extends Controller {
 		} else {
 			foodtrucks = new Model.Finder<String, Foodtruckinfo>(String.class,
 					Foodtruckinfo.class).where()
-					.like("fooditems", "%" + type + "%").where()
+					.like("fooditems", "% " + type + "%").where()
 					.ne("latitude", 0.0).findList();
 		}
 
@@ -138,7 +138,7 @@ public class Application extends Controller {
 										.asText();
 							if (node.get("fooditems") != null)
 								foodtruck.fooditems = node.get("fooditems")
-										.asText();
+										.asText().toLowerCase();
 							if (node.get("address") != null)
 								foodtruck.address = node.get("address")
 										.asText();
